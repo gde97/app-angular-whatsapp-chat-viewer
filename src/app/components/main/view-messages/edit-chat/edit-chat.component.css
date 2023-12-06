@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+  }
+  
+.text-area{
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+    width: 550px;
+    height: 200px;
+}
+
+
+.action-buttons {
+    justify-content: space-between;
+  }

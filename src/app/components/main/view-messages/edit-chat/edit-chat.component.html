@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-content>
+    <h1>{{ mainTitle }}</h1>
+    <form
+      class="text-area"
+      [formGroup]="nameChatForm"
+      (keydown.enter)="$event.preventDefault()"
+    >
+      <mat-form-field appearance="fill">
+        <mat-label></mat-label>
+        <input matInput type="text" formControlName="name" />
+      </mat-form-field>
+      <h3 color="warn">{{ textError }}</h3>
+    </form>
+    <mat-card-actions class="action-buttons">
+      <button mat-raised-button color="warn" (click)="closeDialog()">
+        {{ buttonCancel }}
+      </button>
+      <button
+        mat-raised-button
+        color="accent"
+        [disabled]="!nameChatForm.valid || !nameChatForm.dirty"
+        (click)="submitEdit()"
+      >
+        {{ buttonConfirm }}
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

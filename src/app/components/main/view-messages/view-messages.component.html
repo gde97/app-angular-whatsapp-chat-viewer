@@ -1,0 +1,48 @@
+<div class="flex-container">
+  <div>
+    <mat-toolbar class="top-bar" color="accent">
+      <div *ngIf="chat != undefined" class="top-bar-if">
+        <span class="top-bar-spacer"></span>
+        <span class="top-bar-name-chat">{{ topBarTxt }}</span>
+        <span class="top-bar-spacer"></span>
+        <button mat-icon-button class="top-bar-menu-icon" [matMenuTriggerFor]="top_menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #top_menu>
+          <button mat-menu-item (click)="openEditChat()">
+            <mat-icon>forum</mat-icon>
+            <span>{{chatNameOption}}</span>
+          </button>
+          <button mat-menu-item (click)="openEditOwner()">
+            <mat-icon>chat</mat-icon>
+            <span>{{ownerOption}}</span>
+          </button>
+        </mat-menu>
+      </div>
+    </mat-toolbar>
+  </div>
+  <div class="center-scroll-area">
+    <div *ngIf="chat == undefined">
+      <div class="center-scroll-area no-chat-selected">
+        {{ noChatSelectedTxt }}
+      </div>
+    </div>
+    <mat-list *ngIf="chat != undefined" class="center-scroll-area message-list">
+      <mat-list-item *ngFor="let message of listmsg; index as i" class="container-item">
+        <mat-list-item
+          class="container-item message"
+          [ngClass]="
+            checkIfIsOwner(message.sender) ? 'message-owner' : 'message-other'
+          "
+        >
+        <app-message [idUser]="idUser?.id!" [idChat]="idChat!" [dataMessage]="message"></app-message>
+        </mat-list-item>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div>
+    <mat-toolbar class="bottom-bar" color="primary">
+      <!--<span>{{ bottomBarTxt }}</span>-->
+    </mat-toolbar>
+  </div>
+</div>

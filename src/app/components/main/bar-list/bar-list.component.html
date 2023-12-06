@@ -1,0 +1,28 @@
+<div class="bar-list">
+  <mat-form-field class="chat-search">
+    <mat-label>{{ searchBoxText }}</mat-label>
+    <input matInput type="text" [(ngModel)]="searchChatName" />
+    <button
+      matSuffix
+      mat-icon-button
+      aria-label="searchBoxDelete"
+      (click)="searchChatName = ''"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <span *ngIf="user == undefined" class="area-list error-list">
+    <h3>{{messageNoUser}}</h3>
+  </span>
+  <mat-list *ngIf="user != undefined" class="area-list chat-list">
+    <mat-list-item
+      *ngFor="let chat of chats | searchfilter : searchChatName"
+      class="chat-item"
+      (click)="setChatSelected(chat)"
+    >
+      <span matListItemTitle class="chat-item-text"  >
+        {{ chat.name }}
+      </span>
+    </mat-list-item>
+  </mat-list>
+</div>

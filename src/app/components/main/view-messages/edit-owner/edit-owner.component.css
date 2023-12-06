@@ -1,0 +1,46 @@
+h1{
+  text-align: center;
+}
+
+.row-checkbox-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: stretch;
+  width: 230px;
+  max-height: 350px;
+}
+
+.checkbox-list {
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  height: calc(350px -(22px + 32px));
+}
+
+.row-final {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.row-final-text {
+  min-width: fit-content;
+  margin-right: 5px;
+}
+
+.row-final-list {
+  word-wrap: break-word;
+  max-width: calc(500px - 130px);
+}
+
+.action-buttons {
+  justify-content: space-between;
+}

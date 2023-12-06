@@ -1,0 +1,13 @@
+.main-container{
+    display: flex;
+}
+
+.close-button{
+    position: absolute;
+    right: 4px;
+  top: 4px;
+}
+
+.image{
+    height: 90vh;
+}

@@ -1,0 +1,54 @@
+<mat-card>
+  <mat-card-content>
+    <h1>{{mainTitle}}</h1>
+    <section class="row-checkbox-group">
+      <span class="checkbox-group">
+        <mat-card-title>{{ titleListSender }}</mat-card-title>
+        <mat-card-subtitle>{{ subtitleListSender }}</mat-card-subtitle>
+        <span class="checkbox-list">
+          <span *ngFor="let name of data.listSender">
+            <mat-checkbox
+              *ngIf="isNotAlreadyPresent(name)"
+              (change)="eventCheckbox($event, name)"
+              >{{ name }}</mat-checkbox
+            ></span
+          ></span
+        >
+      </span>
+      <span class="checkbox-group">
+        <mat-card-title>{{ titleChatOwners }}</mat-card-title>
+        <mat-card-subtitle>{{ subtitleChatOwners }}</mat-card-subtitle>
+        <span class="checkbox-list">
+          <span *ngFor="let name of data.chat?.nameowner">
+            <mat-checkbox
+              [checked]="true"
+              (change)="eventCheckbox($event, name)"
+              >{{ name }}</mat-checkbox
+            >
+          </span></span
+        >
+      </span>
+    </section>
+    <section class="row-final">
+      <span class="row-final-text">
+        {{ finalList }}
+      </span>
+      <span class="row-final-list">
+        {{ selectedOwners.toString() }}
+      </span>
+    </section>
+    <mat-card-actions class="action-buttons">
+      <button mat-raised-button color="warn" (click)="closeDialog()">
+        {{ buttonCancel }}
+      </button>
+      <button
+        mat-raised-button
+        color="accent"
+        [disabled]="disableConfirm"
+        (click)="submitEdit()"
+      >
+        {{ buttonConfirm }}
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

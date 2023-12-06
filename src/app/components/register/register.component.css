@@ -1,0 +1,56 @@
+.login-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  background: radial-gradient(
+    circle,
+    rgba(37, 211, 102, 0.6250700963979341) 35%,
+    rgba(18, 140, 126, 1) 100%
+  );
+}
+
+mat-card {
+  margin: auto;
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
+    0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+
+mat-form-field {
+  min-width: 300px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+mat-card-header,
+mat-card-title,
+mat-card-content,
+mat-form-field,
+mat-card-subtitle,
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card-title {
+  margin: 20px;
+  font-weight: 500;
+}
+
+mat-card-subtitle {
+  color: var(--mat-stepper-header-error-state-label-text-color);
+}
+
+mat-divider {
+  margin-bottom: 10px;
+}
+
+mat-card-actions {
+  justify-content: space-between;
+}
+
+/*
+.mat-mdc-raised-button:not(:disabled) {
+  background: #128c7e;
+  color: white;
+}*/

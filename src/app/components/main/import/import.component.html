@@ -1,0 +1,85 @@
+<mat-card>
+  <mat-card-content>
+    <h1>{{ mainTitle }}</h1>
+    <section></section>
+    <section class="center-area">
+      <span *ngIf="selectedFiles?.length! < 1" class="type-selection-area">
+        <mat-radio-group [(ngModel)]="typeSelected">
+          <mat-radio-button [value]="0">
+            {{ typeUpload[0].name }}
+          </mat-radio-button>
+          <mat-radio-button [value]="1" class="type-selection-area-left">
+            {{ typeUpload[1].name }}
+          </mat-radio-button>
+        </mat-radio-group>
+        <span *ngIf="typeSelected == 0" (click)="fileInput.click()">
+          <input
+            #fileInput
+            hidden="true"
+            type="file"
+            multiple
+            accept=".zip"
+            class="file-input"
+            (change)="chooseFile($event)"
+          />
+          <button mat-raised-button id="uploadButton" color="primary">
+            {{ buttonUpload }}
+            <mat-icon>attach_file</mat-icon>
+          </button>
+        </span>
+        <span *ngIf="typeSelected == 1" (click)="fileInput.click()">
+          <input
+            #fileInput
+            hidden="true"
+            type="file"
+            multiple
+            class="file-input"
+            (change)="chooseFile($event)"
+          />
+          <button mat-raised-button id="uploadButton" color="primary">
+            {{ buttonUpload }}
+            <mat-icon>attach_file</mat-icon>
+          </button>
+        </span>
+      </span>
+      <span *ngIf="selectedFiles?.length! > 0">
+        <mat-list class="file-list">
+          <mat-list-item *ngFor="let file of selectedFiles; index as i">
+            <div matListItemIcon class="remove-button">
+              <button mat-icon-button (click)="removeFile(i)">
+                <mat-icon color="warn">cancel</mat-icon>
+              </button>
+            </div>
+            <div matListItemTitle>{{ file.name }}</div>
+          </mat-list-item>
+        </mat-list>
+      </span>
+    </section>
+    <section *ngIf="typeSelected == 1 && selectedFiles?.length! > 0" class="name-chat-area">
+      <form
+        class="text-area"
+        [formGroup]="nameChatForm"
+        (keydown.enter)="$event.preventDefault()"
+      >
+        <mat-form-field appearance="fill">
+          <mat-label></mat-label>
+          <input matInput type="text" formControlName="name" />
+          <mat-hint>{{textUnderField}}</mat-hint>
+        </mat-form-field>
+      </form>
+    </section>
+    <mat-card-actions class="action-buttons">
+      <button mat-raised-button color="warn" (click)="closeDialog()">
+        {{ buttonCancel }}
+      </button>
+      <button
+        mat-raised-button
+        color="accent"
+        [disabled]="disableConfirm && !nameChatForm.dirty"
+        (click)="submitImport()"
+      >
+        {{ buttonConfirm }}
+      </button>
+    </mat-card-actions></mat-card-content
+  >
+</mat-card>

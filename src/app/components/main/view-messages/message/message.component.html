@@ -1,0 +1,42 @@
+<span matListItemTitle class="message-sender">
+  {{ dataMessage.sender }}
+</span>
+<span matListItemLine>
+  <!--
+  <span class="message-text" >{{ dataMessage.text }}</span>
+  -->
+
+  <span *ngIf="isAttachment(); then attachment; else text"></span>
+  <ng-template #text>
+    <span class="message-text">{{ dataMessage.text }}</span></ng-template
+  >
+  <ng-template #attachment>
+    <span *ngIf="toLoad">
+      <button mat-raised-button color="primary" (click)="load()">
+        {{ textToLoad }}
+      </button>
+    </span>
+    <span *ngIf="!toLoad">
+      <span matListItemLine>
+        <audio *ngIf="typeOfAttachment == 'audio'" controls>
+          <source src="{{ source }}" type="{{ stringType }}" />
+        </audio>
+        <button
+          *ngIf="typeOfAttachment == 'image'"
+          mat-raised-button
+          color="primary"
+          (click)="openImage()"
+        >
+          Apri immagine
+        </button>
+      </span>
+      <span matListItemLine>
+        <button mat-raised-button color="primary" (click)="download()">
+          scarica
+          <mat-icon>download</mat-icon>
+        </button>
+      </span>
+    </span>
+  </ng-template>
+</span>
+<span matListItemLine>{{ dataMessage.datetime }}</span>

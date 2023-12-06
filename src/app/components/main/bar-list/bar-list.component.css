@@ -1,0 +1,49 @@
+.bar-list{
+    height: 100%;
+}
+
+/*https://stackoverflow.com/questions/53684763/how-to-remove-space-bottom-mat-form-field*/
+.chat-search{
+    width: 100%;
+    margin-bottom: -22px;
+}
+
+
+.area-list{
+    width: 350px;
+    height: calc(100vh - (56px + 64px));
+}
+
+.error-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-list{
+    box-sizing: border-box;    
+    overflow-x: hidden;
+    /*overflow-y: scroll;*/
+}
+
+.chat-item{
+    /*padding: 0;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-color: #e5ddd5;
+    border-width: 1px;  */
+    background: linear-gradient(to bottom, rgba(255,255,255) 70%, rgba(229,221,213) 100%);
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 50px;
+    width: auto;
+    cursor: pointer !important;
+}
+
+.chat-item:hover{
+    background: linear-gradient(to bottom, rgb(245, 245, 245) 70%, rgb(218, 210, 203) 100%);
+}
+
+.chat-item-text{
+    font-weight: 500 !important;
+}

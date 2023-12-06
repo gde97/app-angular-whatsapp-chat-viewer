@@ -1,0 +1,28 @@
+/* override default */
+.mdc-list-item.mdc-list-item--with-two-lines {
+    height: auto;
+    min-width: 220px;
+  }
+  
+  .mdc-list-item.mdc-list-item--with-three-lines {
+    height: auto;
+    min-width: 220px;
+  }
+  
+  .mdc-list-item.mdc-list-item--with-four-lines {
+    height: auto;
+    min-width: 220px;
+  }
+
+  .mdc-list-item__secondary-text::before {
+    display: contents !important;
+  }
+
+.message-sender {
+    font-weight: bold;
+  }
+
+  .message-text {
+    color: black;
+    white-space: normal !important;
+  }

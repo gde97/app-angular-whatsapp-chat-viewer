@@ -1,0 +1,30 @@
+
+<mat-drawer-container class="drawer-container" autosize>
+  <mat-drawer #drawer class="drawer-sidenav" mode="over" disableClose="true">
+    <div class="flex-header-drawer">
+      <h1>{{sidebarTitle}}</h1>
+    <button mat-mini-fab color="warn" class="close-button" (click)="drawer.close()">
+      <mat-icon>close</mat-icon> 
+    </button>       
+    </div>
+    <button mat-raised-button color="primary" class="buttons" (click)="openImport()">{{sidebarImport}}</button>
+    <button mat-raised-button color="primary" class="buttons" (click)="openExport()">{{sidebarExport}}</button>
+    <button mat-raised-button color="accent" class="buttons" (click)="logoutProcess()">{{sidebarLogout}}</button>
+  </mat-drawer>
+  <mat-toolbar class="drawer-bar" color="primary">
+    <button
+      mat-icon-button
+      (click)="drawer.open()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="drawer-bar-spacer"></span>
+    <span>{{mainTitle}}</span>
+    <span class="drawer-bar-spacer"></span>
+  </mat-toolbar>
+
+  <div class="flex-main-content-container">
+    <app-bar-list class="bar-list"></app-bar-list>
+    <app-view-messages class="view-messages"></app-view-messages>
+  </div>
+</mat-drawer-container>
